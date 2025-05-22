@@ -81,30 +81,30 @@ for message in st.session_state.messages:
     st.chat_message(message['role']).markdown(message['content'])
 
 #Define list of words to ensure AI only answers questions related to mental health
-#mental_health_keywords = ["suffering","ptsd","ocd","mental health", "depression", "anxiety", "stress", "therapy", "counseling", "psychologist", "psychiatrist", "mental illness", "adhd", "self-harm", "selfharm", "suicide", "panic attack", "mental wellbeing", "suicide", "mental disorder", "mental breakdown"]
-#def mental_health_related(prompt):
-#    prompt_lower = prompt.lower()
-#    return any(keyword in prompt_lower for keyword in mental_health_keywords)
+mental_health_keywords = ["suffering","ptsd","ocd","mental health", "depression", "anxiety", "stress", "therapy", "counseling", "psychologist", "psychiatrist", "mental illness", "adhd", "self-harm", "selfharm", "suicide", "panic attack", "mental wellbeing", "suicide", "mental disorder", "mental breakdown"]
+def mental_health_related(prompt):
+    prompt_lower = prompt.lower()
+    return any(keyword in prompt_lower for keyword in mental_health_keywords)
 
 #Prompt input take in user input and display input
 prompt = st.chat_input('Ask your question here!')
 
 #If user enters a prompt
-if prompt :
-    st.chat_message('user').markdown(prompt)
-    st.session_state.messages.append({'role':'user', 'content' : prompt})
-    full_prompt = f"{system_prompt}\n\nUser:{prompt}"
-    response = watsonx_llm(prompt)
-    st.chat_message('assistant').markdown(response)
-    st.session_state.messages.append({'role' : 'assistant', 'content' : response})
+#if prompt :
+#    st.chat_message('user').markdown(prompt)
+#    st.session_state.messages.append({'role':'user', 'content' : prompt})
+#    full_prompt = f"{system_prompt}\n\nUser:{prompt}"
+#    response = watsonx_llm(prompt)
+#    st.chat_message('assistant').markdown(response)
+#    st.session_state.messages.append({'role' : 'assistant', 'content' : response})
 
-#    if mental_health_related(prompt):
-#        response = watsonx_llm(prompt)
-#        st.chat_message('assistant').markdown(response)
-#        st.session_state.messages.append({'role' : 'assistant', 'content' : response})
-#    else:
-#        response = "I am sorry but I can only answer questions directly related to mental health. "
-#        st.chat_message('assistant').markdown(response)
-#        st.session_state.messages.append({'role' : 'assistant', 'content' : response})
+if mental_health_related(prompt):
+        response = watsonx_llm(prompt)
+        st.chat_message('assistant').markdown(response)
+        st.session_state.messages.append({'role' : 'assistant', 'content' : response})
+else:
+        response = "I am sorry but I can only answer questions directly related to mental health. "
+        st.chat_message('assistant').markdown(response)
+        st.session_state.messages.append({'role' : 'assistant', 'content' : response})
 
 
