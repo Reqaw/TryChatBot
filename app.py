@@ -18,7 +18,7 @@ from getpass import getpass
  
 #Credential setup for LLM
 #creds = {
-#    'apikey':'KFVrV0kD60tmMusH4R2woequpE79Re52m7qAQc6xwQ0U',
+#    'apikey':'*********************************************',
 #    'url':'https://au-syd.ml.cloud.ibm.com'
 #}
 
