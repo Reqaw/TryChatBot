@@ -24,7 +24,7 @@ from getpass import getpass
 
 #Provide the IBM cloud with the API key
 watsonx_api_key = getpass()
-os.environ["KFVrV0kD60tmMusH4R2woequpE79Re52m7qAQc6xwQ0U"] = watsonx_api_key
+os.environ["*********************************************"] = watsonx_api_key
 #
 
 #LLM using Langchain
@@ -54,7 +54,7 @@ watsonx_llm = WatsonxLLM(
     url="https://au-syd.ml.cloud.ibm.com",
     project_id="09be0072-6588-41d9-b850-98024cc0d7bd",
     params=parameters,
-    apikey="KFVrV0kD60tmMusH4R2woequpE79Re52m7qAQc6xwQ0U",  # Add your API key here
+    apikey="*********************************************",  # Add your API key here
 )   
 
 #Page config
